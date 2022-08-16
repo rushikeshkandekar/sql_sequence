@@ -1,0 +1,36 @@
+create table player(id int primary key default nextval('player_seq'),first_name varchar(20),
+                 last_name varchar(20));
+insert into player(first_name,last_name)values ('rushi','kandekar'),
+('ajinkya','varpe');
+create table game(id int primary key default nextval('game_seq'),start_date_time date,
+                  end_date_time date)
+ insert into game(start_date_time,end_date_time)values('2022-08-14','2022-08-15');
+ create table game_player(id int primary key default nextval('gameplayer_seq'),game_id int,player_id int,seq_uence int);
+ insert into game_player(game_id,player_id,seq_uence)values(2001,1001,1),
+ (2001,1001,2),(2002,1002,3),(2002,1002,4);
+ 
+ create table game_ladder(id int primary key default nextval('gameladder_seq'),start_position int,end_position int,game_id int);
+ insert into game_ladder(start_position,end_position,game_id)values(4,15,2001),(14,35,2001),(39,49,2002),(78,90,2002);
+ **sneak_and_ladder**
+ create table game_sneake(id int primary key default nextval('g_sneak'),start_position int,end_position int,game_id int);
+  insert into game_sneake(start_position,end_position,game_id)values(56,43,2001),(85,65,2001),(67,49,2002),(98,59,2002);
+
+
+
+
+create table game_player_position(id int primary key default nextval('gp_position'),posi_tion int, game_player_id int );
+insert into game_player_position(posi_tion,game_player_id)values(1,3001),(3,3001),(4,3002),(5,3002);
+
+
+create table game_player_dice(id int primary key default nextval('gp_dice'),dice_value int,game_player_id int);
+insert into game_player_dice(dice_value,game_player_id)values(2,3001),(4,3002),(6,3001),(3,3001),(5,3002);
+
+
+create table  game_player_dice_movement(id int primary key default nextval('gpd_movement'),
+                                       start_position int,end_position int,game_player_dice int);
+
+insert into game_player_dice_movement(start_position,end_position,game_player_dice)values(1,6,8001),(8,12,8002),(6,9,8001),(7,10,8002);
+
+ 
+ 
+ 
